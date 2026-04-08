@@ -107,11 +107,11 @@ export default function Services() {
             id="services-heading"
             className="text-balance text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl"
           >
-            Full-Service Plumbing Solutions
+            What we fix (and find)
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            From routine maintenance to complex repairs, our licensed technicians handle every
-            plumbing need with precision and care.
+            Every technician on our team is licensed, not subcontracted. We handle the job start to
+            finish — no hand-offs, no middlemen.
           </p>
         </div>
 

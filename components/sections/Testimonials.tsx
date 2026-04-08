@@ -8,19 +8,19 @@ const testimonials = [
     name: 'John M.',
     area: 'Myers Park',
     rating: 5,
-    text: "Had a slab leak that two other companies couldn't find. South Charlotte Plumbing used their advanced detection equipment and pinpointed it within an hour. The repair was clean, professional, and priced exactly what they quoted. Couldn't be happier.",
+    text: "Two other plumbers told us we needed to tear up the kitchen floor. These guys showed up with detection equipment and found the leak in 40 minutes — it was behind the master bath wall, not under the slab. Saved us about $4,000 and a week of demo. We've used them three times since.",
   },
   {
     name: 'Sarah K.',
     area: 'Ballantyne',
     rating: 5,
-    text: 'Our water heater died at 10 PM on a Saturday. They answered on the first ring and had a technician at our door in 35 minutes. By midnight we had hot water again. Their emergency service is the real deal — fast, honest, and fairly priced.',
+    text: "Water heater went out Saturday night. I expected to wait until Monday. They picked up immediately — not a call center, an actual plumber — and someone was at our house in 35 minutes. Diagnosed a failed thermocouple, replaced it on the spot. $280 total. I've recommended them to half my street.",
   },
   {
     name: 'David & Lisa R.',
     area: 'Weddington',
     rating: 5,
-    text: 'We hired them for a whole-house repipe — PEX throughout our 4,000 sq ft home. The crew was meticulous, clean, and finished a day early. Our water pressure has never been better. They truly treat your home like their own.',
+    text: 'Whole-house repipe, copper to PEX. 4,000 sq ft, two stories. They covered every floor with drop cloths, cut clean access holes they patched after, and finished a day ahead of schedule. Water pressure went from barely-a-trickle to hotel-shower. Worth every penny.',
   },
 ];
 
