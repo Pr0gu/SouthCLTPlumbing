@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     await resend.emails.send({
       from: 'South Charlotte Plumbing <noreply@southcharlotteplumbing.com>',
-      to: 'info@artfixplumbing.com',
+      to: 'hello@southcharlotteplumbing.com',
       replyTo: data.email,
       subject: `New Lead: ${data.service} — ${data.name}`,
       html: `

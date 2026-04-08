@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, Clock } from 'lucide-react';
 import Logo from './Logo';
 
 const serviceAreas = [
@@ -15,7 +15,7 @@ const serviceAreas = [
   'Piper Glen',
   'Matthews',
   'Pineville',
-  'Indian Trail',
+  'Providence',
 ];
 
 const services = [
@@ -36,23 +36,9 @@ export default function Footer() {
     name: 'South Charlotte Plumbing',
     url: 'https://southcharlotteplumbing.com',
     telephone: '+19804054186',
-    email: 'info@artfixplumbing.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '3412 Brooktree Ln',
-      addressLocality: 'Indian Trail',
-      addressRegion: 'NC',
-      postalCode: '28079',
-      addressCountry: 'US',
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: 35.0768,
-      longitude: -80.6593,
-    },
+    email: 'hello@southcharlotteplumbing.com',
     areaServed: [
       { '@type': 'City', name: 'Charlotte', addressRegion: 'NC' },
-      { '@type': 'City', name: 'Indian Trail', addressRegion: 'NC' },
       { '@type': 'City', name: 'Matthews', addressRegion: 'NC' },
       { '@type': 'City', name: 'Weddington', addressRegion: 'NC' },
       { '@type': 'City', name: 'Marvin', addressRegion: 'NC' },
@@ -115,16 +101,12 @@ export default function Footer() {
                 980-405-4186
               </a>
               <a
-                href="mailto:info@artfixplumbing.com"
+                href="mailto:hello@southcharlotteplumbing.com"
                 className="flex items-center gap-3 text-sm transition-colors hover:text-brand-gold"
               >
                 <Mail className="h-4 w-4 text-brand-gold" aria-hidden="true" />
-                info@artfixplumbing.com
+                hello@southcharlotteplumbing.com
               </a>
-              <div className="flex items-start gap-3 text-sm">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-gold" aria-hidden="true" />
-                3412 Brooktree Ln, Indian Trail, NC 28079
-              </div>
             </div>
           </div>
 
