@@ -5,22 +5,22 @@ import { useInView } from 'react-intersection-observer';
 
 const testimonials = [
   {
-    name: 'John M.',
+    name: 'Sarah Mitchell',
     area: 'Myers Park',
     rating: 5,
-    text: "Two other plumbers told us we needed to tear up the kitchen floor. These guys showed up with detection equipment and found the leak in 40 minutes — it was behind the master bath wall, not under the slab. Saved us about $4,000 and a week of demo. We've used them three times since.",
+    text: 'They found a slab leak that two other plumbers missed. Saved us thousands in potential water damage. Professional, fast, and honest pricing.',
   },
   {
-    name: 'Sarah K.',
-    area: 'Ballantyne',
+    name: 'The Williams Family',
+    area: 'SouthPark',
     rating: 5,
-    text: "Water heater went out Saturday night. I expected to wait until Monday. They picked up immediately — not a call center, an actual plumber — and someone was at our house in 35 minutes. Diagnosed a failed thermocouple, replaced it on the spot. $280 total. I've recommended them to half my street.",
+    text: 'Burst pipe at 2 AM. They answered immediately and were here fast. Prevented major flooding. Can\u2019t recommend enough!',
   },
   {
-    name: 'David & Lisa R.',
-    area: 'Weddington',
+    name: 'Angela Thompson',
+    area: 'Foxcroft',
     rating: 5,
-    text: 'Whole-house repipe, copper to PEX. 4,000 sq ft, two stories. They covered every floor with drop cloths, cut clean access holes they patched after, and finished a day ahead of schedule. Water pressure went from barely-a-trickle to hotel-shower. Worth every penny.',
+    text: 'Complete master bathroom remodel plumbing. They worked perfectly with our contractor and delivered flawless installation.',
   },
 ];
 

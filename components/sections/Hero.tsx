@@ -3,10 +3,17 @@
 import { Phone, FileText, CheckCircle2 } from 'lucide-react';
 import { useInView } from 'react-intersection-observer';
 
-const stats = [
-  { value: '6+', label: 'Years Serving Charlotte' },
-  { value: '2,400+', label: 'Jobs Completed' },
-  { value: '30 min', label: 'Avg. Response Time' },
+const heroReviews = [
+  {
+    text: 'They found a slab leak that two other plumbers missed. Saved us thousands in potential water damage. Professional, fast, and honest pricing.',
+    name: 'Sarah M.',
+    area: 'Myers Park',
+  },
+  {
+    text: 'Burst pipe at 2 AM. They answered immediately and were here fast. Prevented major flooding. Can\u2019t recommend enough!',
+    name: 'The Williams Family',
+    area: 'SouthPark',
+  },
 ];
 
 export default function Hero() {
@@ -86,36 +93,43 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right: Stats + social proof */}
+          {/* Right: Real reviews */}
           <div className="hidden lg:block">
             <div className="grid grid-cols-1 gap-4">
-              {stats.map((stat) => (
+              {heroReviews.map((review) => (
                 <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-8 py-6 backdrop-blur-sm"
+                  key={review.name}
+                  className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 px-8 py-6 backdrop-blur-sm"
                 >
-                  <p className="text-4xl font-extrabold text-brand-gold">{stat.value}</p>
-                  <p className="mt-1 text-sm font-medium text-gray-400">{stat.label}</p>
+                  <div className="flex items-center gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <svg
+                        key={i}
+                        className="h-4 w-4 fill-brand-gold text-brand-gold"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-sm leading-relaxed text-gray-300">
+                    &ldquo;{review.text}&rdquo;
+                  </p>
+                  <p className="mt-3 text-xs font-medium text-gray-500">
+                    — {review.name}, {review.area}
+                  </p>
                 </div>
               ))}
-              {/* Google review callout */}
-              <div className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 px-8 py-6">
-                <div className="flex items-center gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <svg
-                      key={i}
-                      className="h-5 w-5 fill-brand-gold text-brand-gold"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="mt-2 text-sm font-medium text-gray-300">
-                  &ldquo;Called at 10 PM, they were here by 10:35. Fixed our burst pipe and cleaned
-                  up everything. These guys are the real deal.&rdquo;
+
+              {/* Guarantee box */}
+              <div className="rounded-2xl border border-white/10 bg-white/5 px-8 py-6 text-center backdrop-blur-sm">
+                <p className="text-sm font-bold uppercase tracking-widest text-brand-gold">
+                  Our Guarantee
                 </p>
-                <p className="mt-2 text-xs text-gray-500">— Recent Google Review, Ballantyne</p>
+                <p className="mt-2 text-sm text-gray-400">
+                  You approve the price before we start. If it&rsquo;s not right, we come back — no
+                  charge.
+                </p>
               </div>
             </div>
           </div>

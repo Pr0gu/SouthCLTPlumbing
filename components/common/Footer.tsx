@@ -68,11 +68,6 @@ export default function Footer() {
     priceRange: '$$',
     image: 'https://southcharlotteplumbing.com/og-image.png',
     sameAs: [],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '127',
-    },
   };
 
   return (
