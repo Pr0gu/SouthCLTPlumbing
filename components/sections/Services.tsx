@@ -48,7 +48,7 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
   return (
     <div
       ref={ref}
-      className={`group relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white p-8 shadow-sm transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/30 hover:shadow-xl ${
+      className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-500 hover:-translate-y-1 hover:border-brand-gold/30 hover:shadow-xl ${
         inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
       style={{ transitionDelay: `${index * 100}ms` }}
@@ -56,16 +56,16 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
       {/* Gold top accent on hover */}
       <div className="absolute left-0 right-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-brand-gold to-brand-gold-light transition-transform duration-300 group-hover:scale-x-100" />
 
-      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-brand-navy/5 transition-colors group-hover:bg-brand-gold/10">
+      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-white/10 transition-colors group-hover:bg-brand-gold/10">
         <service.icon
-          className="h-7 w-7 text-brand-navy transition-colors group-hover:text-brand-gold"
+          className="h-7 w-7 text-white transition-colors group-hover:text-brand-gold"
           aria-hidden="true"
         />
       </div>
 
-      <h3 className="mb-3 text-xl font-bold text-brand-navy">{service.title}</h3>
+      <h3 className="mb-3 text-xl font-bold text-white">{service.title}</h3>
 
-      <p className="leading-relaxed text-gray-600">{service.description}</p>
+      <p className="leading-relaxed text-gray-300">{service.description}</p>
 
       <div className="mt-5 flex items-center gap-1 text-sm font-semibold text-brand-gold opacity-0 transition-opacity group-hover:opacity-100">
         Learn More
@@ -89,7 +89,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="section-padding bg-brand-cream"
+      className="section-padding bg-transparent"
       aria-labelledby="services-heading"
     >
       <div className="container-narrow">
@@ -105,11 +105,11 @@ export default function Services() {
           </p>
           <h2
             id="services-heading"
-            className="text-balance text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl"
+            className="text-balance text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
           >
             What we fix (and find)
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             Every technician on our team is licensed, not subcontracted. We handle the job start to
             finish — no hand-offs, no middlemen.
           </p>

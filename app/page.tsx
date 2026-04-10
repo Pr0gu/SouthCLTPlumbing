@@ -2,30 +2,58 @@ import Header from '@/components/common/Header';
 import Footer from '@/components/common/Footer';
 import MobileCTA from '@/components/common/MobileCTA';
 import Hero from '@/components/sections/Hero';
+import WarningSigns from '@/components/sections/WarningSigns';
 import Services from '@/components/sections/Services';
 import HowItWorks from '@/components/sections/HowItWorks';
+import DIYTest from '@/components/sections/DIYTest';
 import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import EmergencyCTA from '@/components/sections/EmergencyCTA';
-import ServiceAreas from '@/components/sections/ServiceAreas';
 import Testimonials from '@/components/sections/Testimonials';
+import FAQ from '@/components/sections/FAQ';
+import ServiceAreas from '@/components/sections/ServiceAreas';
 import ContactForm from '@/components/sections/ContactForm';
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
-        <Services />
-        <HowItWorks />
-        <WhyChooseUs />
-        <EmergencyCTA />
-        <Testimonials />
-        <ServiceAreas />
-        <ContactForm />
-      </main>
-      <Footer />
-      <MobileCTA />
+      {/* Fixed background video — plays behind entire page */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/video/hero-poster.jpg"
+        className="fixed inset-0 z-0 h-full w-full object-cover motion-reduce:hidden"
+        aria-hidden="true"
+      >
+        <source src="/video/hero.mp4" type="video/mp4" media="(min-width: 1024px)" />
+        <source src="/video/hero-mobile.mp4" type="video/mp4" />
+      </video>
+
+      <div className="relative z-10">
+        <Header />
+        <main id="main">
+          <Hero />
+          {/* Single translucent overlay for all content — no seams */}
+          <div className="-mt-1 bg-brand-dark/95 backdrop-blur-md">
+            <WarningSigns />
+            <Services />
+            <HowItWorks />
+            <DIYTest />
+            <WhyChooseUs />
+            <EmergencyCTA />
+            <Testimonials />
+            <FAQ />
+            <ServiceAreas />
+            <ContactForm />
+          </div>
+        </main>
+        <Footer />
+        {/* Spacer for mobile sticky CTA bar */}
+        <div className="h-16 md:hidden" />
+        <MobileCTA />
+      </div>
     </>
   );
 }

@@ -31,7 +31,7 @@ function StarRating({ rating }: { rating: number }) {
         <Star
           key={i}
           className={`h-5 w-5 ${
-            i < rating ? 'fill-brand-gold text-brand-gold' : 'fill-gray-200 text-gray-200'
+            i < rating ? 'fill-brand-gold text-brand-gold' : 'fill-gray-600 text-gray-600'
           }`}
           aria-hidden="true"
         />
@@ -52,18 +52,18 @@ function TestimonialCard({
   return (
     <div
       ref={ref}
-      className={`flex flex-col rounded-2xl border border-gray-200/80 bg-white p-8 shadow-sm transition-all duration-600 ${
+      className={`flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-8 transition-all duration-600 ${
         inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       <StarRating rating={testimonial.rating} />
 
-      <blockquote className="mt-5 flex-1 text-gray-600 leading-relaxed">
+      <blockquote className="mt-5 flex-1 text-gray-300 leading-relaxed">
         &ldquo;{testimonial.text}&rdquo;
       </blockquote>
 
-      <div className="mt-6 flex items-center gap-3 border-t border-gray-100 pt-5">
+      <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
         {/* Avatar placeholder */}
         <div className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-navy text-sm font-bold text-white">
           {testimonial.name
@@ -72,8 +72,8 @@ function TestimonialCard({
             .join('')}
         </div>
         <div>
-          <p className="font-bold text-brand-navy">{testimonial.name}</p>
-          <p className="text-sm text-gray-500">{testimonial.area}</p>
+          <p className="font-bold text-white">{testimonial.name}</p>
+          <p className="text-sm text-gray-400">{testimonial.area}</p>
         </div>
       </div>
     </div>
@@ -86,7 +86,7 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="section-padding bg-white"
+      className="section-padding"
       aria-labelledby="testimonials-heading"
     >
       <div className="container-narrow">
@@ -102,11 +102,11 @@ export default function Testimonials() {
           </p>
           <h2
             id="testimonials-heading"
-            className="text-balance text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl"
+            className="text-balance text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
           >
             What Our Customers Say
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             Don&rsquo;t just take our word for it. Here&rsquo;s what homeowners across South
             Charlotte have to say about our work.
           </p>

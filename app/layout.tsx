@@ -71,11 +71,20 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://southcharlotteplumbing.com'),
 };
 
+import StructuredData from '@/components/common/StructuredData';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans antialiased">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-brand-gold focus:px-4 focus:py-2 focus:text-white focus:font-bold"
+        >
+          Skip to main content
+        </a>
         {children}
+        <StructuredData />
         <Analytics />
         <SpeedInsights />
       </body>

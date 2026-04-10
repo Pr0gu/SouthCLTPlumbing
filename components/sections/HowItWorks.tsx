@@ -31,7 +31,7 @@ export default function HowItWorks() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="section-padding bg-white" aria-labelledby="how-heading">
+    <section className="section-padding bg-transparent" aria-labelledby="how-heading">
       <div className="container-narrow">
         <div
           ref={ref}
@@ -44,7 +44,7 @@ export default function HowItWorks() {
           </p>
           <h2
             id="how-heading"
-            className="text-3xl font-extrabold text-brand-navy sm:text-4xl"
+            className="text-3xl font-extrabold text-white sm:text-4xl"
           >
             Three steps. No runaround.
           </h2>
@@ -78,12 +78,12 @@ function StepCard({ step, index }: { step: (typeof steps)[number]; index: number
       style={{ transitionDelay: `${index * 150}ms` }}
     >
       {/* Number circle */}
-      <div className="relative z-10 mb-5 flex h-28 w-28 flex-col items-center justify-center rounded-full bg-brand-cream ring-4 ring-white">
+      <div className="relative z-10 mb-5 flex h-28 w-28 flex-col items-center justify-center rounded-full bg-white/[0.05] ring-2 ring-brand-gold/20">
         <span className="text-xs font-bold tracking-widest text-brand-gold">{step.num}</span>
-        <step.icon className="mt-1 h-8 w-8 text-brand-navy" aria-hidden="true" />
+        <step.icon className="mt-1 h-8 w-8 text-white" aria-hidden="true" />
       </div>
-      <h3 className="mb-2 text-lg font-bold text-brand-navy">{step.title}</h3>
-      <p className="max-w-xs text-sm leading-relaxed text-gray-600">{step.description}</p>
+      <h3 className="mb-2 text-lg font-bold text-white">{step.title}</h3>
+      <p className="max-w-xs text-sm leading-relaxed text-gray-300">{step.description}</p>
     </div>
   );
 }

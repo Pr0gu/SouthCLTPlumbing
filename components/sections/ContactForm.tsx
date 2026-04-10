@@ -11,6 +11,7 @@ interface FormData {
   email: string;
   service: string;
   message: string;
+  website?: string;
 }
 
 const serviceOptions = [
@@ -25,6 +26,7 @@ const serviceOptions = [
 
 export default function ContactForm() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [formLoadedAt] = useState(() => Date.now());
   const { ref: sectionRef, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const {
@@ -40,7 +42,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, _formLoadedAt: formLoadedAt }),
       });
 
       if (!res.ok) throw new Error('Failed to send');
@@ -55,13 +57,13 @@ export default function ContactForm() {
   };
 
   const inputBase =
-    'w-full rounded-xl border border-gray-200 bg-white px-4 py-3.5 text-brand-dark placeholder:text-gray-400 transition-all focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 focus:outline-none';
+    'w-full rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3.5 text-white placeholder:text-gray-500 transition-all focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/20 focus:outline-none';
   const errorClass = 'border-red-300 focus:border-red-400 focus:ring-red-200/30';
 
   return (
     <section
       id="contact"
-      className="section-padding relative overflow-hidden bg-brand-cream"
+      className="section-padding relative overflow-hidden bg-transparent"
       aria-labelledby="contact-heading"
     >
       {/* Decorative background */}
@@ -84,11 +86,11 @@ export default function ContactForm() {
             </p>
             <h2
               id="contact-heading"
-              className="text-balance text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl"
+              className="text-balance text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
             >
               Request a Free Estimate
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-gray-600">
+            <p className="mx-auto mt-4 max-w-xl text-lg text-gray-300">
               Fill out the form below and we&rsquo;ll get back to you within 30 minutes during
               business hours. For emergencies, call us directly.
             </p>
@@ -98,17 +100,24 @@ export default function ContactForm() {
           <form
             onSubmit={handleSubmit(onSubmit)}
             noValidate
-            className={`space-y-5 rounded-2xl border border-gray-200/80 bg-white p-8 shadow-lg sm:p-10 transition-all duration-700 ${
+            className={`space-y-5 rounded-2xl border border-white/10 bg-white/[0.03] p-8 sm:p-10 transition-all duration-700 ${
               inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
             }`}
           >
+            {/* Honeypot — bots only */}
+            <input
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute left-[-9999px] opacity-0"
+              {...register('website')}
+            />
+
             {/* Name + Phone row */}
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
-                <label
-                  htmlFor="name"
-                  className="mb-1.5 block text-sm font-semibold text-brand-navy"
-                >
+                <label htmlFor="name" className="mb-1.5 block text-sm font-semibold text-white">
                   Full Name <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -127,10 +136,7 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label
-                  htmlFor="phone"
-                  className="mb-1.5 block text-sm font-semibold text-brand-navy"
-                >
+                <label htmlFor="phone" className="mb-1.5 block text-sm font-semibold text-white">
                   Phone Number <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -157,7 +163,7 @@ export default function ContactForm() {
 
             {/* Email */}
             <div>
-              <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-brand-navy">
+              <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-white">
                 Email Address <span className="text-red-500">*</span>
               </label>
               <input
@@ -183,10 +189,7 @@ export default function ContactForm() {
 
             {/* Service dropdown */}
             <div>
-              <label
-                htmlFor="service"
-                className="mb-1.5 block text-sm font-semibold text-brand-navy"
-              >
+              <label htmlFor="service" className="mb-1.5 block text-sm font-semibold text-white">
                 Service Needed <span className="text-red-500">*</span>
               </label>
               <select
@@ -214,10 +217,7 @@ export default function ContactForm() {
 
             {/* Message */}
             <div>
-              <label
-                htmlFor="message"
-                className="mb-1.5 block text-sm font-semibold text-brand-navy"
-              >
+              <label htmlFor="message" className="mb-1.5 block text-sm font-semibold text-white">
                 Message
               </label>
               <textarea

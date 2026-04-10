@@ -1,139 +1,70 @@
 'use client';
 
-import { Phone, FileText, CheckCircle2 } from 'lucide-react';
-import { useInView } from 'react-intersection-observer';
+import { ShieldCheck, Clock, Star, ArrowDown } from 'lucide-react';
+import QuoteCalculator from '@/components/QuoteCalculator';
 
-const heroReviews = [
-  {
-    text: 'They found a slab leak that two other plumbers missed. Saved us thousands in potential water damage. Professional, fast, and honest pricing.',
-    name: 'Sarah M.',
-    area: 'Myers Park',
-  },
-  {
-    text: 'Burst pipe at 2 AM. They answered immediately and were here fast. Prevented major flooding. Can\u2019t recommend enough!',
-    name: 'The Williams Family',
-    area: 'SouthPark',
-  },
+const TRUST_BADGES = [
+  { icon: ShieldCheck, label: 'Licensed NC & SC' },
+  { icon: Clock, label: '30-Min Response' },
+  { icon: Star, label: '5-Star Rated' },
 ];
 
 export default function Hero() {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center overflow-hidden bg-brand-dark"
+      className="relative lg:min-h-screen flex items-center overflow-hidden"
       aria-label="Hero"
     >
-      {/* Background */}
-      <div className="absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-dark via-brand-navy to-brand-dark" />
-        <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-brand-gold/5 blur-3xl" />
-        <div className="absolute -bottom-48 -left-48 h-[600px] w-[600px] rounded-full bg-brand-navy-light/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent" />
-      </div>
+      {/* Dark overlay — video is global fixed background */}
+      <div className="absolute inset-0 bg-brand-dark/60" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/30 via-transparent to-brand-dark/80" />
 
-      {/* Content */}
-      <div
-        ref={ref}
-        className={`relative z-10 mx-auto max-w-7xl px-4 py-32 sm:px-6 md:py-40 lg:px-8 transition-all duration-1000 ${
-          inView ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
-        }`}
-      >
+      {/* Two-column content */}
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8 pt-28 pb-20">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Left: Copy */}
-          <div>
-            <h1 className="text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-[4.25rem]">
-              Your plumber
-              <br />
-              shouldn&rsquo;t be
+          <div className="text-center lg:text-left">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white leading-[1.08] tracking-tight">
+              South Charlotte&rsquo;s
               <br />
               <span className="bg-gradient-to-r from-brand-gold to-brand-gold-light bg-clip-text text-transparent">
-                a stranger.
+                trusted plumber.
               </span>
             </h1>
 
-            <p className="mt-6 max-w-lg text-lg leading-relaxed text-gray-300">
-              We&rsquo;re the team Myers Park and Ballantyne homeowners call first — and recommend
-              to their neighbors. Same-day service, honest pricing, zero surprises.
+            <p className="mt-6 max-w-xl text-lg sm:text-xl text-gray-300 leading-relaxed">
+              Serving Myers Park, SouthPark, Ballantyne and the rest of South Charlotte&rsquo;s
+              finest communities. Licensed, insured, 24/7 emergency. Free estimates, always.
             </p>
 
-            <ul className="mt-6 space-y-2">
-              {[
-                'Licensed in NC & SC — not a franchise',
-                'On-site within 30–45 minutes, 24/7',
-                'You approve the price before we start',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-2 text-gray-300">
-                  <CheckCircle2
-                    className="mt-0.5 h-5 w-5 shrink-0 text-brand-gold"
-                    aria-hidden="true"
-                  />
-                  <span className="text-sm">{item}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTAs */}
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <a
-                href="tel:9804054186"
-                className="group flex items-center justify-center gap-3 rounded-xl bg-brand-gold px-8 py-4 text-lg font-bold text-white shadow-lg shadow-brand-gold/25 transition-all hover:bg-brand-gold-dark hover:shadow-xl sm:flex-initial"
-              >
-                <Phone className="h-5 w-5" aria-hidden="true" />
-                980-405-4186
-              </a>
-              <a
-                href="#contact"
-                className="group flex items-center justify-center gap-3 rounded-xl border-2 border-white/20 bg-white/5 px-8 py-4 text-lg font-bold text-white backdrop-blur-sm transition-all hover:border-brand-gold/50 hover:bg-brand-gold/10 sm:flex-initial"
-              >
-                <FileText className="h-5 w-5" aria-hidden="true" />
-                Free Estimate
-              </a>
-            </div>
-          </div>
-
-          {/* Right: Real reviews */}
-          <div className="hidden lg:block">
-            <div className="grid grid-cols-1 gap-4">
-              {heroReviews.map((review) => (
-                <div
-                  key={review.name}
-                  className="rounded-2xl border border-brand-gold/20 bg-brand-gold/5 px-8 py-6 backdrop-blur-sm"
-                >
-                  <div className="flex items-center gap-1 mb-3">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="h-4 w-4 fill-brand-gold text-brand-gold"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                    ))}
-                  </div>
-                  <p className="text-sm leading-relaxed text-gray-300">
-                    &ldquo;{review.text}&rdquo;
-                  </p>
-                  <p className="mt-3 text-xs font-medium text-gray-500">
-                    — {review.name}, {review.area}
-                  </p>
+            {/* Trust Badges */}
+            <div className="mt-10 flex flex-wrap justify-center lg:justify-start gap-6">
+              {TRUST_BADGES.map((badge) => (
+                <div key={badge.label} className="flex items-center gap-2 text-sm text-gray-400">
+                  <badge.icon className="h-4 w-4 text-brand-gold" />
+                  <span>{badge.label}</span>
                 </div>
               ))}
-
-              {/* Guarantee box */}
-              <div className="rounded-2xl border border-white/10 bg-white/5 px-8 py-6 text-center backdrop-blur-sm">
-                <p className="text-sm font-bold uppercase tracking-widest text-brand-gold">
-                  Our Guarantee
-                </p>
-                <p className="mt-2 text-sm text-gray-400">
-                  You approve the price before we start. If it&rsquo;s not right, we come back — no
-                  charge.
-                </p>
-              </div>
             </div>
           </div>
+
+          {/* Right: Quote Calculator */}
+          <div id="quote">
+            <QuoteCalculator />
+          </div>
         </div>
+      </div>
+
+      {/* Scroll indicator — desktop only */}
+      <div className="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        <a
+          href="#services"
+          aria-label="Scroll to services"
+          className="flex items-center justify-center w-10 h-10 rounded-full border border-white/10 text-white/30 hover:text-brand-gold hover:border-brand-gold/30 transition-colors"
+        >
+          <ArrowDown className="h-5 w-5" />
+        </a>
       </div>
     </section>
   );

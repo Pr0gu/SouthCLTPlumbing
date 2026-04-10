@@ -52,8 +52,8 @@ function DifferentiatorCard({
         <item.icon className="h-9 w-9 text-brand-gold" aria-hidden="true" />
       </div>
 
-      <h3 className="mb-3 text-xl font-bold text-brand-navy">{item.title}</h3>
-      <p className="max-w-xs leading-relaxed text-gray-600">{item.description}</p>
+      <h3 className="mb-3 text-xl font-bold text-white">{item.title}</h3>
+      <p className="max-w-xs leading-relaxed text-gray-300">{item.description}</p>
     </div>
   );
 }
@@ -62,7 +62,7 @@ export default function WhyChooseUs() {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="why-us" className="section-padding bg-white" aria-labelledby="why-us-heading">
+    <section id="why-us" className="section-padding bg-transparent" aria-labelledby="why-us-heading">
       <div className="container-narrow">
         {/* Section header */}
         <div
@@ -76,11 +76,11 @@ export default function WhyChooseUs() {
           </p>
           <h2
             id="why-us-heading"
-            className="text-balance text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl"
+            className="text-balance text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
           >
             The South Charlotte Difference
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-300">
             We&rsquo;re not a franchise. We&rsquo;re your neighbors — and we bring the
             professionalism of a national brand with the care of a local family business.
           </p>

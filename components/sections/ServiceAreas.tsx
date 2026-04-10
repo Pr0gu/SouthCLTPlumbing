@@ -30,7 +30,7 @@ function AreaBadge({ name, index }: { name: string; index: number }) {
   return (
     <div
       ref={ref}
-      className={`group flex items-center gap-3 rounded-xl border border-brand-navy/10 bg-white px-5 py-4 shadow-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-gold/30 hover:shadow-md ${
+      className={`group flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition-all duration-500 hover:-translate-y-0.5 hover:border-brand-gold/30 hover:shadow-md ${
         inView ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
       }`}
       style={{ transitionDelay: `${(index % 9) * 60}ms` }}
@@ -39,7 +39,7 @@ function AreaBadge({ name, index }: { name: string; index: number }) {
         className="h-4 w-4 shrink-0 text-brand-gold transition-transform group-hover:scale-110"
         aria-hidden="true"
       />
-      <span className="text-sm font-semibold text-brand-navy">{name}</span>
+      <span className="text-sm font-semibold text-white">{name}</span>
     </div>
   );
 }
@@ -50,7 +50,7 @@ export default function ServiceAreas() {
   return (
     <section
       id="areas"
-      className="section-padding relative overflow-hidden bg-brand-cream"
+      className="section-padding relative overflow-hidden bg-transparent"
       aria-labelledby="areas-heading"
     >
       {/* Decorative background */}
@@ -72,7 +72,7 @@ export default function ServiceAreas() {
           </p>
           <h2
             id="areas-heading"
-            className="text-balance text-3xl font-extrabold text-brand-navy sm:text-4xl md:text-5xl"
+            className="text-balance text-3xl font-extrabold text-white sm:text-4xl md:text-5xl"
           >
             Proudly Serving South Charlotte&rsquo;s
             <br className="hidden sm:block" /> Finest Communities

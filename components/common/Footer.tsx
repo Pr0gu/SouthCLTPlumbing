@@ -1,22 +1,6 @@
-'use client';
-
 import { Phone, Mail, Clock } from 'lucide-react';
 import Logo from './Logo';
-
-const serviceAreas = [
-  'Myers Park',
-  'SouthPark',
-  'Ballantyne',
-  'Foxcroft',
-  'Eastover',
-  'Quail Hollow',
-  'Weddington',
-  'Marvin',
-  'Piper Glen',
-  'Matthews',
-  'Pineville',
-  'Providence',
-];
+import FooterAreas from './FooterAreas';
 
 const services = [
   'Leak Detection',
@@ -126,15 +110,7 @@ export default function Footer() {
             <h3 className="mb-4 text-sm font-bold uppercase tracking-widest text-white">
               Service Areas
             </h3>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-2.5">
-              {serviceAreas.map((area) => (
-                <li key={area}>
-                  <a href="#areas" className="text-sm transition-colors hover:text-brand-gold">
-                    {area}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <FooterAreas />
           </div>
 
           {/* Column 4: Hours */}
