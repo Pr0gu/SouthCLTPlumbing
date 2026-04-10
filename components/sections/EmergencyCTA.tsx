@@ -8,7 +8,7 @@ export default function EmergencyCTA() {
 
   return (
     <section
-      className="relative overflow-hidden bg-brand-dark py-16 sm:py-20"
+      className="relative overflow-hidden py-16 sm:py-20"
       aria-label="Emergency plumbing call to action"
     >
       {/* Background effects */}
